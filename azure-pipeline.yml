@@ -2,13 +2,11 @@ pool:
   vmImage: "windows-2019"
 
 variables:
-  buildConfiguration: "Release"
   WIXSHARP_WIXDIR: "C:\\Program Files (x86)\\WiX Toolset v3.11\\bin"
+  version: "0.1.$(Build.BuildId)"
 
 steps:
-
   - script: |
       dotnet tool install -g cake.tool
-      %USERPROFILE%/.dotnet/tools/dotnet-cake -target=Installer
+      %USERPROFILE%/.dotnet/tools/dotnet-cake -target=Installer -vv=$(version)
     displayName: Build wix installer
-

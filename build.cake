@@ -1,13 +1,15 @@
 
-var version = Argument("version", "0.1.0");
+var version = Argument("vv", "0.1.0");
 
 var settings = new DotNetCoreMSBuildSettings();
 settings.Properties["Version"] = new string[] { version };
 
 Task("Publish").Does(() => {
-    CleanDirectory(".publish/W");
+    var dir= ".publish/W";
+    CreateDirectory(dir);
+    CleanDirectory(dir);
     DotNetCorePublish("src/MyApp", new DotNetCorePublishSettings {
-        OutputDirectory = ".publish/W",
+        OutputDirectory = dir, 
         MSBuildSettings = settings
     });
 });
