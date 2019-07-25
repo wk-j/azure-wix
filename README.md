@@ -1,1 +1,1 @@
-## Auzre Wix
+## Azure Wix
