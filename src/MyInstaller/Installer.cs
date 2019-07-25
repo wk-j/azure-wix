@@ -99,7 +99,7 @@ class Program {
 
     static Config CreateConfig() {
         var projectDir = new SIO.DirectoryInfo(".").Parent.Parent.FullName;
-        projectDir = SIO.Path.Combine(projectDir, "publish/W");
+        projectDir = SIO.Path.Combine(projectDir, ".publish/W");
 
         Console.WriteLine(projectDir);
 
